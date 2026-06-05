@@ -1,7 +1,7 @@
 # OPN™ Global Intelligence Architecture
 
 ## The Geological Moat
-The true defensibility of the Opal Provenance Network (OPN™) is not built on blockchain—it is built on **trust, standardization, geological intelligence, historical permanence, and network effects**. By establishing absolute clarity in a fractured market, OPN becomes the de facto layer of truth for geological rarity. The following outlines the roadmap and infrastructure for the future intelligence layer.
+The true defensibility of the Opal Provenance Network (OPN™) is not built on blockchain—it is built on **trust, standardization, ggeological intelligence, historical permanence, and network effects**. By establishing absolute clarity in a fractured market, OPN becomes the de facto layer of truth for geological rarity. The following outlines the roadmap and infrastructure for the future intelligence layer.
 
 ---
 
