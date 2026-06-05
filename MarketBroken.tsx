@@ -84,7 +84,7 @@ export function MarketBroken({ mode }: { mode: 'physical' | 'digital' }) {
                   </div>
               </div>
               <div className={cn("w-full aspect-[4/5] rounded-2xl overflow-hidden relative mb-6", isPhysical ? "bg-white" : "bg-black")}>
-                  <img src="/images/CPopal.png" alt="Contested Rough Opal" className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal transform transition-transform duration-1000 hover:scale-105" />
+                  <img src="/CPopal.png" alt="Contested Rough Opal" className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal transform transition-transform duration-1000 hover:scale-105" />
               </div>
               <div className="text-center px-4">
                  <p className={cn("font-sans text-lg font-medium leading-snug mb-2", isPhysical ? "text-stone-900" : "text-white")}>
