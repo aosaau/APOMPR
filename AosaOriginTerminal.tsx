@@ -186,12 +186,16 @@ export function AosaOriginTerminal({ mode, onMint }: AosaOriginTerminalProps) {
 
   const captureImage = () => {
     if (videoRef.current) {
+      const video = videoRef.current;
+      const size = Math.min(video.videoWidth, video.videoHeight);
       const canvas = document.createElement('canvas');
-      canvas.width = videoRef.current.videoWidth;
-      canvas.height = videoRef.current.videoHeight;
+      canvas.width = size;
+      canvas.height = size;
       const ctx = canvas.getContext('2d');
       if (ctx) {
-        ctx.drawImage(videoRef.current, 0, 0);
+        const startX = (video.videoWidth - size) / 2;
+        const startY = (video.videoHeight - size) / 2;
+        ctx.drawImage(video, startX, startY, size, size, 0, 0, size, size);
         const imageUrl = canvas.toDataURL('image/jpeg');
         processCustomImage(imageUrl);
       }
@@ -206,11 +210,31 @@ export function AosaOriginTerminal({ mode, onMint }: AosaOriginTerminalProps) {
       reader.onload = (event) => {
         if (event.target?.result) {
           if (isCameraActive) stopCamera();
-          processCustomImage(event.target.result as string);
+          cropToSquareAndProcess(event.target.result as string);
         }
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  const cropToSquareAndProcess = (imageUrl: string) => {
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.onload = () => {
+      const size = Math.min(img.width, img.height);
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        const startX = (img.width - size) / 2;
+        const startY = (img.height - size) / 2;
+        ctx.drawImage(img, startX, startY, size, size, 0, 0, size, size);
+        processCustomImage(canvas.toDataURL('image/jpeg'));
+      } else {
+        processCustomImage(imageUrl);
+      }
+    };
   };
 
   const processCustomImage = (imageUrl: string) => {
@@ -253,8 +277,10 @@ export function AosaOriginTerminal({ mode, onMint }: AosaOriginTerminalProps) {
     return 'Not Opal';
   }
 
-  const treatmentStatus = getTreatmentStatus(topPrediction1?.className);
-  const isNotOpal = treatmentStatus === 'Not Opal';
+  const rawTreatmentStatus = getTreatmentStatus(topPrediction1?.className);
+  // Prevent contradiction: if either model classifies as Not Opal, it is Not Opal.
+  const isNotOpal = rawTreatmentStatus === 'Not Opal' || topPrediction2?.className === 'Not Opal';
+  const treatmentStatus = isNotOpal ? 'Not Opal' : rawTreatmentStatus;
   const displayGrade = isNotOpal ? 'N/A' : (topPrediction2?.className || 'Unknown');
   const displayProb = topPrediction1 ? (topPrediction1.probability * 100).toFixed(1) : '0.0';
   const displayClass = isNotOpal ? 'Not Opal' : `Andamooka Matrix ${treatmentStatus}`;
