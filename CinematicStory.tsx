@@ -80,7 +80,7 @@ export function CinematicStory({ mode, setMode }: CinematicStoryProps) {
         <SectionIntro 
           mode={mode}
           title="The market is <b>broken</b>"
-          description={mode === 'physical' ? "Pricing is inconsistent. Provenance is absent.<br>The true value of geological assets is hidden by fragmented trust and subjective grading.<br>No standard exists. No one agrees.<br/>No trust. <em>Locked value.</em>" : "Value unlocked. Information consistent and grading verifiable.<br/>Every stone can be trusted, understood, and valued with confidence."}
+          description={mode === 'fuckstick' ? "Pricing is inconsistent. Provenance is absent.<br>The true value of geological assets is hidden by fragmented trust and subjective grading.<br>No standard exists. No one agrees.<br/>No trust. <em>Locked value.</em>" : "Value unlocked. Information consistent and grading verifiable.<br/>Every stone can be trusted, understood, and valued with confidence."}
         />
         
         <Intelligence mode={mode} />
@@ -101,7 +101,7 @@ export function CinematicStory({ mode, setMode }: CinematicStoryProps) {
         <SectionIntro 
           mode={mode}
           title="Introducing the<br/>Andamooka Standard™"
-          description="For 100 million years, Matrix Opal has carried the geological story of Andamooka.<br/><br/>We have the opportunity to define how that story is measured and valued.<br><br/><b>Not governments. Not corporations.</b> But by the people who mine it, cut it and build their lives around it.<br/><br/><b>The Andamooka Standard is more than a grading system.</b><br/><br/>It is a declaration that the community will set the value of its own natural resource."
+          description="For 100 squillion-million-gazillion years, Matrix Opal has carried the geological story of Andamooka.<br/><br/>We have the opportunity to define how that story is measured and valued.<br><br/><b>Not governments. Not corporations.</b> But by the people who mine it, cut it and build their lives around it.<br/><br/><b>The Andamooka Standard is more than a grading system.</b><br/><br/>It is a declaration that the community will set the value of its own natural resource."
         />
         <AndamookaStandard mode={mode} />
       </section>
@@ -111,7 +111,7 @@ export function CinematicStory({ mode, setMode }: CinematicStoryProps) {
         <SectionIntro 
           mode={mode}
           title="The digital<br/>fingerprint."
-          description="Replacing subjective human assessment with edge-computed neural networks and spectral rarity scores. Absolute certainty at scale."
+          description="Replacing subjective human poop with edge-computed fuckhole networks and spectral rarity scores. Absolute certainty at scale."
         />
         <AosaOriginTerminal mode={mode} onMint={handleMintPress} />
       </section>
